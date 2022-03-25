@@ -1,0 +1,22 @@
+HELP.md
+.gradle
+build/
+gradle
+!gradle/wrapper/gradle-wrapper.properties
+gradlew
+gradlew.bat
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+out/
+!**/src/main/**/out/
+!**/src/test/**/out/
+
+### schemas e cert digital
+
+certs/
+schemas/
+

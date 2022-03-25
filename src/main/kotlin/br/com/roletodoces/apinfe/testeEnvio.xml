@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="utf-8"?>
+<nfeProc versao="4.00" xmlns="http://www.portalfiscal.inf.br/nfe">
+    <NFe xmlns="http://www.portalfiscal.inf.br/nfe">
+        <infNFe Id="NFe35220342306334000138550010000005511921927178" versao="4.00">
+            <ide>
+                <cUF>35</cUF>
+                <cNF>92192717</cNF>
+                <natOp>VENDA DE PRODUCAO DO ESTABELECIMENTO</natOp>
+                <mod>55</mod>
+                <serie>1</serie>
+                <nNF>551</nNF>
+                <dhEmi>2022-03-23T20:56:00-03:00</dhEmi>
+                <dhSaiEnt>2022-03-23T20:56:00-03:00</dhSaiEnt>
+                <tpNF>1</tpNF>
+                <idDest>1</idDest>
+                <cMunFG>3548708</cMunFG>
+                <tpImp>1</tpImp>
+                <tpEmis>1</tpEmis>
+                <cDV>8</cDV>
+                <tpAmb>1</tpAmb>
+                <finNFe>1</finNFe>
+                <indFinal>0</indFinal>
+                <indPres>1</indPres>
+                <procEmi>0</procEmi>
+                <verProc>3.10.37</verProc>
+            </ide>
+            <emit>
+                <CNPJ>42306334000138</CNPJ>
+                <xNome>ROSE ALICE VOLK</xNome>
+                <xFant>ROLETO DOCES</xFant>
+                <enderEmit>
+                    <xLgr>Rua Vicente de Carvalho</xLgr>
+                    <nro>611</nro>
+                    <xCpl>Casa B</xCpl>
+                    <xBairro>Anchieta</xBairro>
+                    <cMun>3548708</cMun>
+                    <xMun>Sao Bernardo do Campo</xMun>
+                    <UF>SP</UF>
+                    <CEP>09732600</CEP>
+                    <cPais>1058</cPais>
+                    <xPais>Brasil</xPais>
+                    <fone>11984291259</fone>
+                </enderEmit>
+                <IE>799432127110</IE>
+                <CRT>1</CRT>
+            </emit>
+            <dest>
+                <CNPJ>24321644000140</CNPJ>
+                <xNome>SABOR JH LTDA</xNome>
+                <enderDest>
+                    <xLgr>R DA GLORIA</xLgr>
+                    <nro>132</nro>
+                    <xBairro>LIBERDADE</xBairro>
+                    <cMun>3550308</cMun>
+                    <xMun>Sao Paulo</xMun>
+                    <UF>SP</UF>
+                    <CEP>01510000</CEP>
+                    <cPais>1058</cPais>
+                    <xPais>Brasil</xPais>
+                    <fone>1199999999</fone>
+                </enderDest>
+                <indIEDest>1</indIEDest>
+                <IE>140592692115</IE>
+                <email>weisc@uol.com.br</email>
+            </dest>
+            <det nItem="1">
+                <prod>
+                    <cProd>07</cProd>
+                    <cEAN>0606529014575</cEAN>
+                    <xProd>ROLETO GOIABADA 270 GRAMAS</xProd>
+                    <NCM>19059090</NCM>
+                    <CFOP>5101</CFOP>
+                    <uCom>UN</uCom>
+                    <qCom>2.00</qCom>
+                    <vUnCom>12.00</vUnCom>
+                    <vProd>24.00</vProd>
+                    <cEANTrib>0606529014575</cEANTrib>
+                    <uTrib>UN</uTrib>
+                    <qTrib>2.00</qTrib>
+                    <vUnTrib>12.00</vUnTrib>
+                    <indTot>1</indTot>
+                    <xPed>826</xPed>
+                    <nItemPed>1</nItemPed>
+                </prod>
+                <imposto>
+                    <vTotTrib>0.00</vTotTrib>
+                    <ICMS>
+                        <ICMSSN102>
+                            <orig>0</orig>
+                            <CSOSN>400</CSOSN>
+                        </ICMSSN102>
+                    </ICMS>
+                    <PIS>
+                        <PISOutr>
+                            <CST>99</CST>
+                            <vBC>0.00</vBC>
+                            <pPIS>0.0000</pPIS  >
+                            <vPIS>0.00</vPIS>
+                        </PISOutr>
+                    </PIS>
+                    <COFINS>
+                        <COFINSOutr>
+                            <CST>99</CST>
+                            <vBC>0.00</vBC>
+                            <pCOFINS>0.0000</pCOFINS>
+                            <vCOFINS>0.00</vCOFINS>
+                        </COFINSOutr>
+                    </COFINS>
+                </imposto>
+            </det>
+            <det nItem="2">
+                <prod>
+                    <cProd>09</cProd>
+                    <cEAN>SEM GTIN</cEAN>
+                    <xProd>ROLETO LIMAO SICILIANO COM FRUTAS VERMELHAS 270 GRAMAS</xProd>
+                    <NCM>19059090</NCM>
+                    <CFOP>5101</CFOP>
+                    <uCom>UN</uCom>
+                    <qCom>2.00</qCom>
+                    <vUnCom>12.00</vUnCom>
+                    <vProd>24.00</vProd>
+                    <cEANTrib>SEM GTIN</cEANTrib>
+                    <uTrib>UN</uTrib>
+                    <qTrib>2.00</qTrib>
+                    <vUnTrib>12.00</vUnTrib>
+                    <indTot>1</indTot>
+                    <xPed>826</xPed>
+                    <nItemPed>2</nItemPed>
+                </prod>
+                <imposto>
+                    <vTotTrib>0.00</vTotTrib>
+                    <ICMS>
+                        <ICMSSN102>
+                            <orig>0</orig>
+                            <CSOSN>400</CSOSN>
+                        </ICMSSN102>
+                    </ICMS>
+                    <PIS>
+                        <PISOutr>
+                            <CST>99</CST>
+                            <vBC>0.00</vBC>
+                            <pPIS>0.0000</pPIS>
+                            <vPIS>0.00</vPIS>
+                        </PISOutr>
+                    </PIS>
+                    <COFINS>
+                        <COFINSOutr>
+                            <CST>99</CST>
+                            <vBC>0.00</vBC>
+                            <pCOFINS>0.0000</pCOFINS>
+                            <vCOFINS>0.00</vCOFINS>
+                        </COFINSOutr>
+                    </COFINS>
+                </imposto>
+            </det>
+            <det nItem="3">
+                <prod>
+                    <cProd>08</cProd>
+                    <cEAN>SEM GTIN</cEAN>
+                    <xProd>ROLETO DOCE DE LEITE 270 GRAMAS</xProd>
+                    <NCM>19059090</NCM>
+                    <CFOP>5101</CFOP>
+                    <uCom>UN</uCom>
+                    <qCom>1.00</qCom>
+                    <vUnCom>12.00</vUnCom>
+                    <vProd>12.00</vProd>
+                    <cEANTrib>SEM GTIN</cEANTrib>
+                    <uTrib>UN</uTrib>
+                    <qTrib>1.00</qTrib>
+                    <vUnTrib>12.00</vUnTrib>
+                    <indTot>1</indTot>
+                    <xPed>826</xPed>
+                    <nItemPed>3</nItemPed>
+                </prod>
+                <imposto>
+                    <vTotTrib>0.00</vTotTrib>
+                    <ICMS>
+                        <ICMSSN102>
+                            <orig>0</orig>
+                            <CSOSN>400</CSOSN>
+                        </ICMSSN102>
+                    </ICMS>
+                    <PIS>
+                        <PISOutr>
+                            <CST>99</CST>
+                            <vBC>0.00</vBC>
+                            <pPIS>0.0000</pPIS>
+                            <vPIS>0.00</vPIS>
+                        </PISOutr>
+                    </PIS>
+                    <COFINS>
+                        <COFINSOutr>
+                            <CST>99</CST>
+                            <vBC>0.00</vBC>
+                            <pCOFINS>0.0000</pCOFINS>
+                            <vCOFINS>0.00</vCOFINS>
+                        </COFINSOutr>
+                    </COFINS>
+                </imposto>
+            </det>
+            <total>
+                <ICMSTot>
+                    <vBC>0.00</vBC>
+                    <vICMS>0.00</vICMS>
+                    <vICMSDeson>0.00</vICMSDeson>
+                    <vFCP>0.00</vFCP>
+                    <vBCST>0.00</vBCST>
+                    <vST>0.00</vST>
+                    <vFCPST>0.00</vFCPST>
+                    <vFCPSTRet>0.00</vFCPSTRet>
+                    <vProd>60.00</vProd>
+                    <vFrete>0.00</vFrete>
+                    <vSeg>0.00</vSeg>
+                    <vDesc>0.00</vDesc>
+                    <vII>0.00</vII>
+                    <vIPI>0.00</vIPI>
+                    <vIPIDevol>0.00</vIPIDevol>
+                    <vPIS>0.00</vPIS>
+                    <vCOFINS>0.00</vCOFINS>
+                    <vOutro>0.00</vOutro>
+                    <vNF>60.00</vNF>
+                    <vTotTrib>0.00</vTotTrib>
+                </ICMSTot>
+            </total>
+            <transp>
+                <modFrete>9</modFrete>
+                <vol>
+                    <qVol>5</qVol>
+                    <pesoL>0.000</pesoL>
+                    <pesoB>0.000</pesoB>
+                </vol>
+            </transp>
+            <cobr>
+                <fat>
+                    <nFat>1018</nFat>
+                    <vOrig>60.00</vOrig>
+                    <vDesc>0.00</vDesc>
+                    <vLiq>60.00</vLiq>
+                </fat>
+                <dup>
+                    <nDup>001</nDup>
+                    <dVenc>2022-03-30</dVenc>
+                    <vDup>60.00</vDup>
+                </dup>
+            </cobr>
+            <pag>
+                <detPag>
+                    <tPag>15</tPag>
+                    <vPag>60.00</vPag>
+                </detPag>
+            </pag>
+            <infAdic>
+                <infCpl>SIMPLES NACIONAL - SIMEI - MEI SIMEI;</infCpl>
+            </infAdic>
+        </infNFe>
+        <Signature xmlns="http://www.w3.org/2000/09/xmldsig#">
+            <SignedInfo>
+                <CanonicalizationMethod Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315"/>
+                <SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"/>
+                <Reference URI="#NFe35220342306334000138550010000005511921927178">
+                    <Transforms>
+                        <Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/>
+                        <Transform Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315"/>
+                    </Transforms>
+                    <DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/>
+                    <DigestValue>gxqmpnDnZuH4M4X1Xim/Rb7GEFA=</DigestValue>
+                </Reference>
+            </SignedInfo>
+            <SignatureValue>
+                Z32pzcxJPrcRPKC03nQ40JITywyG80DYgpLvV7cRrgzVTGLhdNJ459BIEBdZCWQrCjzfGNf4CSApyKH6D1Z1CRLEu39l4JO/ES8VwgsI4xv5YYuInjc4s7ku1+3uMJHGmne9ab163nedaIWggALQSIbw6twN6IVWgYokDbyfUe/S2pV3r9yfG6yrF5GG2RDmmqo+y2NZwVQFcYMDJIJ4antIv4Z/y0WF+QZri9e2nGit3f7c73NigL+J6oSBBfQ/xK2/5U409LsBCFAE0NR+m+PNXw9BpseJfuWlGbxw5WCvMdQfJhK2H1OwXCcv7+CoPo0mshJgSo0ZTXgte7dixg==
+            </SignatureValue>
+            <KeyInfo>
+                <X509Data>
+                    <X509Certificate>
+                        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
+                    </X509Certificate>
+                </X509Data>
+            </KeyInfo>
+        </Signature>
+    </NFe>
+    <protNFe versao="4.00">
+        <infProt Id="ID135220384111844">
+            <tpAmb>1</tpAmb>
+            <verAplic>SP_NFE_PL009_V4</verAplic>
+            <chNFe>35220342306334000138550010000005511921927178</chNFe>
+            <dhRecbto>2022-03-23T21:02:15-03:00</dhRecbto>
+            <nProt>135220384111844</nProt>
+            <digVal>gxqmpnDnZuH4M4X1Xim/Rb7GEFA=</digVal>
+            <cStat>100</cStat>
+            <xMotivo>Autorizado o uso da NF-e</xMotivo>
+        </infProt>
+    </protNFe>
+</nfeProc>

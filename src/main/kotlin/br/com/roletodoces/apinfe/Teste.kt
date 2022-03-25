@@ -43,10 +43,10 @@ class Teste {
 
     private fun emiteNfe() {
 
-        cnpj = "cpnj roleto"
+        cnpj = "42306334000138"
         modelo = "55"
         serie = 1
-        numero = 92723
+        numero = 1
         dataEmissao = LocalDateTime.now()
         tipoEmissao = "1"
         cnf = String.format("%08d", Random().nextInt(99999999))
@@ -88,7 +88,7 @@ class Teste {
         val recibo = retorno.infRec.nRec
 
         var tentativa: Int = 0
-        var retornoConsulta: br.com.swconsultoria.nfe.schema_4.retConsReciNFe.TRetConsReciNFe? = null
+        var retornoConsulta: TRetConsReciNFe? = null
         while (tentativa < 10) {
             retornoConsulta = Nfe.consultaRecibo(configuracoesNfe, recibo, DocumentoEnum.NFE)
             if (retornoConsulta.cStat.equals(StatusEnum.LOTE_EM_PROCESSAMENTO.codigo)) {
@@ -123,8 +123,7 @@ class Teste {
 
         val nfe = TNFe()
         val infNFe = getInfNFe()
-
-
+        nfe.infNFe = infNFe
         enviNFe.nFe.add(nfe)
 
         return enviNFe
@@ -150,27 +149,27 @@ class Teste {
     private fun montaTotal(): TNFe.InfNFe.Total? {
 
         val total = TNFe.InfNFe.Total()
-
         val icmsTot = TNFe.InfNFe.Total.ICMSTot()
-        icmsTot.vbc = "10.00"
-        icmsTot.vicms = "1.00"
+
+        icmsTot.vbc = "0.00"
+        icmsTot.vicms = "0.00"
         icmsTot.vicmsDeson = "0.00"
         icmsTot.vfcp = "0.00"
         icmsTot.vbcst = "0.00"
         icmsTot.vst = "0.00"
         icmsTot.vfcpstRet = "0.00"
         icmsTot.vfcpst = "0.00"
-        icmsTot.vProd = "10.00"
+        icmsTot.vProd = "24.00"
         icmsTot.vFrete = "0.00"
         icmsTot.vSeg = "0.00"
         icmsTot.vDesc = "0.00"
         icmsTot.vii = "0.00"
         icmsTot.vipi = "0.00"
         icmsTot.vipiDevol = "0.00"
-        icmsTot.vpis = "0.17"
-        icmsTot.vcofins = "0.76"
+        icmsTot.vpis = "0.00"
+        icmsTot.vcofins = "0.00"
         icmsTot.vOutro = "0.00"
-        icmsTot.vnf = "10.00"
+        icmsTot.vnf = "24.00"
         total.icmsTot = icmsTot
 
         return total
@@ -181,10 +180,10 @@ class Teste {
 
         val respTec = TInfRespTec()
 
-        respTec.cnpj = ""
-        respTec.xContato = ""
-        respTec.fone = ""
-        respTec.email = ""
+        respTec.cnpj = "42306334000138"
+        respTec.xContato = "Andre Volk Yoshida"
+        respTec.fone = "11933792174"
+        respTec.email = "andre.volk@hotmail.com"
 
         return respTec
     }
@@ -192,12 +191,11 @@ class Teste {
     private fun montaPagamento(): TNFe.InfNFe.Pag? {
 
         val pag = TNFe.InfNFe.Pag()
-
         val detPag = TNFe.InfNFe.Pag.DetPag()
-        detPag.vPag = "01"
-        detPag.tPag = "10.00"
-        pag.detPag.add(detPag)
 
+        detPag.tPag = "15"
+        detPag.vPag = "24.00"
+        pag.detPag.add(detPag)
 
         return pag
 
@@ -206,11 +204,13 @@ class Teste {
     private fun montaTransportadora(): TNFe.InfNFe.Transp? {
 
         val transp = TNFe.InfNFe.Transp()
-
+        val volume = TNFe.InfNFe.Transp.Vol()
+        volume.qVol = "2"
+        volume.pesoL = "0.000"
+        volume.pesoB = "0.000"
         transp.modFrete = "9"
-
+        transp.vol.add(volume)
         return transp
-
 
     }
 
@@ -234,6 +234,7 @@ class Teste {
     private fun montaImposto(): TNFe.InfNFe.Det.Imposto? {
 
         val imposto = TNFe.InfNFe.Det.Imposto()
+
         criaImpostoIcms(imposto)
         criaImpostoPis(imposto)
         criaImpostoCofins(imposto)
@@ -248,9 +249,9 @@ class Teste {
         val pisAliq = TNFe.InfNFe.Det.Imposto.PIS.PISAliq()
 
         pisAliq.cst = "01"
-        pisAliq.vbc = "10.00"
-        pisAliq.ppis = "1.65"
-        pisAliq.vpis = "0.16"
+        pisAliq.vbc = "0.00"
+        pisAliq.ppis = "0.0000"
+        pisAliq.vpis = "0.00"
         pis.pisAliq = pisAliq
 
         imposto.content.add(ObjectFactory().createTNFeInfNFeDetImpostoPIS(pis))
@@ -263,9 +264,9 @@ class Teste {
         val cofinsAliq = TNFe.InfNFe.Det.Imposto.COFINS.COFINSAliq()
 
         cofinsAliq.cst = "01"
-        cofinsAliq.vbc = "10.00"
-        cofinsAliq.pcofins = "7.60"
-        cofinsAliq.vcofins = "0.76"
+        cofinsAliq.vbc = "0.00"
+        cofinsAliq.pcofins = "0.0000"
+        cofinsAliq.vcofins = "0.00"
         cofins.cofinsAliq = cofinsAliq
 
         imposto.content.add(ObjectFactory().createTNFeInfNFeDetImpostoCOFINS(cofins))
@@ -274,16 +275,12 @@ class Teste {
 
     private fun criaImpostoIcms(imposto: TNFe.InfNFe.Det.Imposto) {
         val icms = TNFe.InfNFe.Det.Imposto.ICMS()
-        val icms00 = TNFe.InfNFe.Det.Imposto.ICMS.ICMS00()
+        val icmssn102 = TNFe.InfNFe.Det.Imposto.ICMS.ICMSSN102()
 
-        icms00.orig = "0"
-        icms00.modBC = "0"
-        icms00.cst = "00"
-        icms00.vbc = "10.00"
-        icms00.picms = "10"
-        icms00.vicms = "1"
+        icmssn102.orig = "0"
+        icmssn102.csosn = "400"
 
-        icms.icmS00 = icms00
+        icms.icmssN102 = icmssn102
 
         imposto.content.add(ObjectFactory().createTNFeInfNFeDetImpostoICMS(icms))
     }
@@ -291,22 +288,22 @@ class Teste {
     private fun montaProduto(): TNFe.InfNFe.Det.Prod {
         val produto = TNFe.InfNFe.Det.Prod()
 
-        produto.cProd = "123"
-        produto.cean = "Sem GTIN -> codigo de barras"
-        produto.xProd = "Produto x"
-        produto.ncm = "27101932"
-        produto.cest = "028297392"
-        produto.indEscala = "S"
-        produto.cfop = "5405"
+        produto.cProd = "07"
+        produto.cean = "0606529014575"
+        produto.xProd = "ROLETO GOIABADA 270 GRAMAS"
+        produto.ncm = "19059090"
+        produto.cfop = "5101"
         produto.uCom = "UN"
-        produto.qCom = "1"
-        produto.vUnCom = "10"
-        produto.vProd = "10.00"
-        produto.ceanTrib = "Sem GTIN"
+        produto.qCom = "2.00"
+        produto.vUnCom = "12.00"
+        produto.vProd = "24.00"
+        produto.ceanTrib = "0606529014575"
         produto.uTrib = "UN"
-        produto.qTrib = "1"
-        produto.vUnTrib = "10"
+        produto.qTrib = "2.00"
+        produto.vUnTrib = "12.00"
         produto.indTot = "1"
+        produto.xPed = "826"
+        produto.nItemPed = "1"
 
         return produto
     }
@@ -315,23 +312,24 @@ class Teste {
 
         val dest = TNFe.InfNFe.Dest()
 
-        val emit = TNFe.InfNFe.Emit()
-
-        dest.xNome = "Nome empresa"
-        dest.cnpj = cnpj
-        dest.ie = "Inscrição estadual"
+        dest.xNome = "NF-E EMITIDA EM AMBIENTE DE HOMOLOGACAO - SEM VALOR FISCAL"
+        dest.cnpj = "24321644000140"
+        dest.ie = "140592692115"
         dest.indIEDest = "1"
 
-        val enderecoEmitente = TEndereco()
-        enderecoEmitente.nro = "0"
-        enderecoEmitente.xLgr = "Rua Teste"
-        enderecoEmitente.xCpl = "Qd 1 Lote 1"
-        enderecoEmitente.xBairro = "Centro"
-        enderecoEmitente.cMun = "Codigo Municipio"
-        enderecoEmitente.xMun = "Municipio de acordo com o IBGE"
-        enderecoEmitente.uf = TUf.valueOf(configuracoesNfe.estado.name)
-        enderecoEmitente.cep = "09732600"
-        dest.enderDest = enderecoEmitente
+        val enderecoDestinatario = TEndereco()
+        enderecoDestinatario.nro = "132"
+        enderecoDestinatario.xLgr = "R DA GLORIA"
+        enderecoDestinatario.xBairro = "LIBERDADE"
+        enderecoDestinatario.cMun = "3550308"
+        enderecoDestinatario.xMun = "Sao Paulo"
+        enderecoDestinatario.uf = TUf.valueOf(configuracoesNfe.estado.name)
+        enderecoDestinatario.cep = "01510000"
+        enderecoDestinatario.cPais = "1058"
+        enderecoDestinatario.xPais = "Brasil"
+        enderecoDestinatario.cPais = "1058"
+        enderecoDestinatario.fone = "1199999999"
+        dest.enderDest = enderecoDestinatario
 
         return dest
 
@@ -341,19 +339,23 @@ class Teste {
 
         val emit = TNFe.InfNFe.Emit()
 
-        emit.xNome = "Nome empresa"
+        emit.xNome = "ROSE ALICE VOLK"
+        emit.xFant = "ROLETO DOCES"
         emit.cnpj = cnpj
-        emit.ie = "Inscrição estadual"
-        emit.crt = "3"
+        emit.ie = "799432127110"
+        emit.crt = "1"
         val enderecoEmitente = TEnderEmi()
-        enderecoEmitente.nro = "0"
-        enderecoEmitente.xLgr = "Rua Teste"
-        enderecoEmitente.xCpl = "Qd 1 Lote 1"
-        enderecoEmitente.xBairro = "Centro"
-        enderecoEmitente.cMun = "Codigo Municipio"
-        enderecoEmitente.xMun = "Municipio de acordo com o IBGE"
+        enderecoEmitente.nro = "611"
+        enderecoEmitente.xLgr = "Rua Vicente de Carvalho"
+        enderecoEmitente.xCpl = "Casa B"
+        enderecoEmitente.xBairro = "Anchieta"
+        enderecoEmitente.cMun = "3548708"
+        enderecoEmitente.xMun = "Sao Bernardo do Campo"
         enderecoEmitente.uf = TUfEmi.valueOf(configuracoesNfe.estado.name)
         enderecoEmitente.cep = "09732600"
+        enderecoEmitente.fone = "11984291259"
+        enderecoEmitente.cPais = "1058"
+        enderecoEmitente.xPais = "Brasil"
         emit.enderEmit = enderecoEmitente
 
         return emit
@@ -366,34 +368,34 @@ class Teste {
 
         ide.cuf = configuracoesNfe.estado.codigoUF
         ide.cnf = cnf
-        ide.natOp = "Venda NFe"
+        ide.natOp = "VENDA DE PRODUCAO DO ESTABELECIMENTO"
         ide.mod = modelo
         ide.serie = serie.toString()
         ide.nnf = numero.toString()
         ide.dhEmi = XmlNfeUtil.dataNfe(dataEmissao)
         ide.tpNF = "1"
-        ide.idDest = "2"
-        ide.cMunFG = "5219753"
+        ide.idDest = "1"
+        ide.cMunFG = "3548708"
         ide.tpImp = "1"
         ide.tpEmis = tipoEmissao
         ide.cdv = chaveUtil.digitoVerificador
         ide.tpAmb = configuracoesNfe.ambiente.codigo
         ide.finNFe = "1"
-        ide.indFinal = "1"
+        ide.indFinal = "0"
         ide.indPres = "1"
         ide.procEmi = "0"
-        ide.verProc = "1.0.0"
+        ide.verProc = "3.10.37"
 
         return ide
     }
 
     private fun criaConfiguracoes() {
-        val certificado = CertificadoService.certificadoPfx("/d/teste/certificado.pfx", "12345")
+        val certificado = CertificadoService.certificadoPfx("certs/certificado.pfx", "ebxjcq86")
         configuracoesNfe = ConfiguracoesNfe.criarConfiguracoes(
-            EstadosEnum.GO,
+            EstadosEnum.SP,
             AmbienteEnum.HOMOLOGACAO,
             certificado,
-            "/d/teste/schemas"
+            "schemas"
         )
     }
 
